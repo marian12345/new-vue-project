@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <ChatConsole msg="Welcome to the chat"/>
+    <ChatConsole />
   </div>
 </template>
 

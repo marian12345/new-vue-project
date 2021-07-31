@@ -3,7 +3,7 @@
     <div class="hello" v-if="!isLoggedIn">
       <h1>{{ msg }}</h1>
       <h2>Wie ist dein Name ?</h2>
-      <input v-model="usrname" placeholder="testplaceholder" v-on:keydown.enter="checkUsrname">
+      <input v-model="usrname" placeholder="Benutzername" v-on:keydown.enter="checkUsrname">
     </div>
   </transition>
 </template>
@@ -16,18 +16,18 @@ export default {
   },
   data(){
     return {
-      usrname: "StringUsrname"
+      usrname: ""
     }
   },
   methods:{
     checkUsrname(){
       // check usrname
-      
+      if(this.usrname.trim() !== ""){
       // store usrname
       this.$store.state.usrname = this.usrname;
-
       // login 
       this.$store.state.loggedIn = true;
+      }
     }
   },
   computed: {

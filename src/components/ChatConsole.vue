@@ -1,7 +1,14 @@
 <template>
   <transition name="fade">
-    <div class="hello" v-if="getStateData.isLoggedIn">
+    <div v-if="getStateData.isLoggedIn">
       <h1>Hello {{ getStateData.usrname }}</h1>
+      <ul id="chatlist">
+        <li v-for="message in messages" v-bind:key="message">
+          {{ message.user }}: {{ message.text }}
+        </li>
+      </ul>
+      <input v-model="msg" placeholder="Nachricht" v-on:keydown.enter="sendMsg">
+      <button @click="sendMsg">Abschicken</button>
     </div>
   </transition>
 </template>
@@ -9,13 +16,16 @@
 <script>
 export default {
   name: "ChatConsole",
-  props: {
-    msg: String
-  },
   data(){
     return {
-      displaying: true,
-      usrname: String
+      msg: "",
+      messages: [{ text: 'Foo', user: 'Greg' }, { text: 'Bar', user: 'Karl' }]
+    }
+  },
+  methods:{
+    sendMsg(){
+      this.messages.push({text: 'check', user: this.$store.state.usrname});
+      console.log("send send"); 
     }
   },
   computed: {
@@ -36,10 +46,11 @@ h3 {
 }
 ul {
   list-style-type: none;
+  text-align: left;
   padding: 0;
 }
 li {
-  display: inline-block;
+  display: block;
   margin: 0 10px;
 }
 a {

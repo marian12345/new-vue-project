@@ -23,10 +23,7 @@ export default {
   data() {
     return {
       msg: "",
-      messages: [
-        { text: "Foo", user: "Greg" },
-        { text: "Bar", user: "Karl" },
-      ],
+      messages: [],
     };
   },
   methods: {

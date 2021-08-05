@@ -5,7 +5,14 @@ export default createStore({
     loggedIn: false,
     usrname: "utypednothing"
   },
-  mutations: {},
+  mutations: {
+    login(state, loggedIn){
+      state.loggedIn = loggedIn;
+    },
+    changeUsrname(state, usrname){
+      state.usrname = usrname;
+    },
+  },
   actions: {},
   modules: {},
 });

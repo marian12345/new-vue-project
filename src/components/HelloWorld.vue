@@ -24,9 +24,9 @@ export default {
       // check usrname
       if(this.usrname.trim() !== ""){
       // store usrname
-      this.$store.state.usrname = this.usrname;
+      this.$store.commit('changeUsrname', this.usrname);
       // login 
-      this.$store.state.loggedIn = true;
+      this.$store.commit('login', true);
       }
     }
   },

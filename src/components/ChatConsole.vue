@@ -25,9 +25,6 @@ export default {
   methods:{
     sendMsg(){
       this.messages.push({text: this.msg.toString(), user: this.$store.state.usrname});
-      console.log(this.$store.state.loggedIn);
-      console.log("and");
-      console.log(this.$store.state.usrname);
     }
   },
   computed: {

@@ -7,7 +7,11 @@
           {{ message.user }}: {{ message.text }}
         </li>
       </ul>
-      <input v-model="msg" placeholder="Nachricht" v-on:keydown.enter="sendMsg">
+      <input
+        v-model="msg"
+        placeholder="Nachricht"
+        v-on:keydown.enter="sendMsg"
+      />
       <button @click="sendMsg">Abschicken</button>
     </div>
   </transition>
@@ -16,25 +20,31 @@
 <script>
 export default {
   name: "ChatConsole",
-  data(){
+  data() {
     return {
       msg: "",
-      messages: [{ text: 'Foo', user: 'Greg' }, { text: 'Bar', user: 'Karl' }]
-    }
+      messages: [
+        { text: "Foo", user: "Greg" },
+        { text: "Bar", user: "Karl" },
+      ],
+    };
   },
-  methods:{
-    sendMsg(){
-      this.messages.push({text: this.msg.toString(), user: this.$store.state.usrname});
-    }
+  methods: {
+    sendMsg() {
+      this.messages.push({
+        text: this.msg.toString(),
+        user: this.$store.state.usrname,
+      });
+    },
   },
   computed: {
-    getStateData () {
+    getStateData() {
       return {
         isLoggedIn: this.$store.state.loggedIn,
-        usrname: this.$store.state.usrname
-      }
-    }
-  }
+        usrname: this.$store.state.usrname,
+      };
+    },
+  },
 };
 </script>
 

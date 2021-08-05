@@ -3,7 +3,11 @@
     <div class="hello" v-if="!isLoggedIn">
       <h1>{{ msg }}</h1>
       <h2>Wie ist dein Name ?</h2>
-      <input v-model="usrname" placeholder="Benutzername" v-on:keydown.enter="checkUsrname">
+      <input
+        v-model="usrname"
+        placeholder="Benutzername"
+        v-on:keydown.enter="checkUsrname"
+      />
     </div>
   </transition>
 </template>
@@ -12,29 +16,29 @@
 export default {
   name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
-  data(){
+  data() {
     return {
-      usrname: ""
-    }
+      usrname: "",
+    };
   },
-  methods:{
-    checkUsrname(){
+  methods: {
+    checkUsrname() {
       // check usrname
-      if(this.usrname.trim() !== ""){
-      // store usrname
-      this.$store.commit('changeUsrname', this.usrname);
-      // login 
-      this.$store.commit('login', true);
+      if (this.usrname.trim() !== "") {
+        // store usrname
+        this.$store.commit("changeUsrname", this.usrname);
+        // login
+        this.$store.commit("login", true);
       }
-    }
+    },
   },
   computed: {
-    isLoggedIn () {
-      return this.$store.state.loggedIn
-    }
-  }
+    isLoggedIn() {
+      return this.$store.state.loggedIn;
+    },
+  },
 };
 </script>
 

@@ -26,6 +26,16 @@ export default {
       messages: [],
     };
   },
+  sockets: {
+    connect: function () {
+      console.log("socket connected");
+    },
+    add_user: function () {
+      console.log(
+        'this method was fired by the socket server. eg: io.emit("customEmit", data)'
+      );
+    },
+  },
   methods: {
     sendMsg() {
       this.messages.push({

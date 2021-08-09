@@ -18,6 +18,16 @@ export default {
   props: {
     msg: String,
   },
+  sockets: {
+    connect: function () {
+      console.log("socket connected");
+    },
+    login: function () {
+      console.log(
+        'this method was fired by the socket server. eg: io.emit("login", data)'
+      );
+    },
+  },
   data() {
     return {
       usrname: "",
@@ -29,6 +39,8 @@ export default {
       if (this.usrname.trim() !== "") {
         // store usrname
         this.$store.commit("changeUsrname", this.usrname);
+        //login at server
+        this.$socket.client.emit("add user", this.usrname);
         // login
         this.$store.commit("login", true);
       }

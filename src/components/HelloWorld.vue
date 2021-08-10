@@ -22,11 +22,6 @@ export default {
     connect: function () {
       console.log("socket connected");
     },
-    login: function () {
-      console.log(
-        'this method was fired by the socket server. eg: io.emit("login", data)'
-      );
-    },
   },
   data() {
     return {
@@ -40,7 +35,7 @@ export default {
         // store usrname
         this.$store.commit("changeUsrname", this.usrname);
         //login at server
-        this.$socket.client.emit("add user", this.usrname);
+        this.$socket.client.emit("add_user", this.usrname);
         // login
         this.$store.commit("login", true);
       }

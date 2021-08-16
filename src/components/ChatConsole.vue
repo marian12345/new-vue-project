@@ -1,20 +1,66 @@
 <template>
-  <transition name="fade">
-    <div v-if="getStateData.isLoggedIn">
-      <h1>Hello {{ getStateData.usrname }}</h1>
-      <ul id="chatlist">
-        <li v-for="message in messages" v-bind:key="message">
+  <div
+    v-if="getStateData.isLoggedIn"
+    class="col-span-full lg:col-span-1 lg:col-start-2 min-h-screen"
+  >
+    <div class="text-6xl my-14 px-4 py-2 w-full">
+      <h1>Hi {{ getStateData.usrname }}</h1>
+    </div>
+
+    <div class="bg-white shadow-xl overflow-hidden rounded mb-4 mt-4">
+      <ul id="chatlist" class="h-96 overflow-y-scroll">
+        <li
+          v-for="message in messages"
+          v-bind:key="message"
+          class="px-4 py-2 break-words"
+          :class="message.user == 'Me' ? 'text-right' : 'text-left'"
+        >
           {{ message.user }}: {{ message.text }}
         </li>
       </ul>
-      <input
-        v-model="msg"
-        placeholder="Nachricht"
-        v-on:keydown.enter="sendMsg"
-      />
-      <button @click="sendMsg">Abschicken</button>
+      <form class="w-full">
+        <div class="flex items-center border-b border-t border-teal-700 py-2">
+          <input
+            type="text"
+            class="
+              appearance-none
+              bg-transparent
+              border-none
+              w-full
+              text-gray-700
+              mr-3
+              py-1
+              px-2
+              leading-tight
+              focus:outline-none
+            "
+            placeholder="Message"
+            aria-label="Your Message"
+            v-on:keydown.enter="sendMsg"
+            v-model="msg"
+          />
+          <button
+            class="
+              flex-shrink-0
+              btn btn-blue
+              border-none
+              text-sm
+              py-1
+              px-2
+              mx-2
+            "
+            type="button"
+            @click="sendMsg"
+          >
+            send
+          </button>
+        </div>
+      </form>
     </div>
-  </transition>
+    <div class="flex justify-start px-3 py-2">
+      <button class="btn btn-blue" @click="logout">back</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -76,10 +122,18 @@ export default {
       }
     },
     addChatMessage(data) {
+      if (data.usrname == this.$store.state.usrname) {
+        data.usrname = "Me";
+      }
       this.messages.push({
         text: data.msg.toString(),
         user: data.usrname,
       });
+    },
+    logout() {
+      this.$store.commit("changeUsrname", "unregistered");
+
+      this.$store.commit("login", false);
     },
   },
   computed: {
@@ -95,19 +149,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+.btn {
+  @apply font-bold py-2 px-4 rounded;
 }
-ul {
-  list-style-type: none;
-  text-align: left;
-  padding: 0;
+.btn-blue {
+  @apply bg-blue-500 text-white;
 }
-li {
-  display: block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.btn-blue:hover {
+  @apply bg-blue-700;
 }
 </style>

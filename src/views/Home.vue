@@ -1,7 +1,17 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div
+    class="
+      home
+      grid grid-cols-1
+      lg:grid-cols-3
+      mx-1
+      lg:mx-0
+      justify-center
+      font-mono
+      items-center
+    "
+  >
+    <HelloWorld />
     <ChatConsole />
   </div>
 </template>
@@ -15,12 +25,7 @@ export default {
   name: "Home",
   components: {
     HelloWorld,
-    ChatConsole
+    ChatConsole,
   },
-  methods:{
-    speak(){
-      console.log("I said hi!");
-    }
-  }
 };
 </script>

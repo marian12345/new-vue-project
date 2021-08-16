@@ -1,23 +1,56 @@
 <template>
-  <transition name="fade">
-    <div class="hello" v-if="!isLoggedIn">
-      <h1>{{ msg }}</h1>
-      <h2>Wie ist dein Name ?</h2>
+  <form
+    v-if="!isLoggedIn"
+    class="
+      col-span-1
+      lg:col-start-2
+      bg-white
+      shadow-xl
+      rounded
+      px-8
+      pt-6
+      pb-6
+      my-14
+    "
+  >
+    <div class="w-full flex justify-center mb-8">
+      <img alt="Vue logo" src="../assets/chat-app-logo.png" />
+    </div>
+    <div class="mb-4">
+      <label
+        class="block text-gray-700 text-sm font-bold mb-2 px-1 text-left"
+        for="username"
+        >Username</label
+      >
       <input
+        class="
+          shadow
+          appearance-none
+          border
+          rounded
+          w-full
+          py-2
+          px-3
+          text-gray-700
+          leading-tight
+          focus:outline-none focus:shadow-outline
+        "
+        id="username"
+        type="text"
         v-model="usrname"
-        placeholder="Benutzername"
+        placeholder="Username"
         v-on:keydown.enter="checkUsrname"
       />
     </div>
-  </transition>
+    <div class="flex px-3 py-2 justify-end">
+      <button class="btn btn-blue" @click="checkUsrname">join chat</button>
+    </div>
+  </form>
 </template>
 
 <script>
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
-  },
   sockets: {
     connect: function () {
       console.log("socket connected");
@@ -51,18 +84,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+.btn {
+  @apply font-bold py-2 px-4 rounded;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.btn-blue {
+  @apply bg-blue-500 text-white;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.btn-blue:hover {
+  @apply bg-blue-700;
 }
 </style>

@@ -6,7 +6,8 @@ import VueSocketIOExt from "vue-socket.io-extended";
 import { io } from "socket.io-client";
 import "./index.css";
 
-const socket = io("http://localhost:3000");
+//const socket = io(process.env.SERVERURL || "http://localhost:3000");
+const socket = io("http://franks1backend.northeurope.cloudapp.azure.com:80");
 
 createApp(App)
   .use(VueSocketIOExt, socket, {

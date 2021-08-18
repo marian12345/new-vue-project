@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 import "./index.css";
 
 //const socket = io(process.env.SERVERURL || "http://localhost:3000");
-const socket = io("http://franks1backend.northeurope.cloudapp.azure.com:80");
+const socket = io("https://www.vivaldiseinhaus.de/");
 
 createApp(App)
   .use(VueSocketIOExt, socket, {

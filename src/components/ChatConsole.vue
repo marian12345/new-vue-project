@@ -36,7 +36,7 @@
             "
             placeholder="Message"
             aria-label="Your Message"
-            v-on:keydown.enter="sendMsg"
+            v-on:keydown.enter.prevent="sendMsg"
             v-model="msg"
           />
           <button

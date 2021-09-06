@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 push-to-github-with-token.sh
+push-to-subtree-with-token.sh
 
 # local env files
 .env.local

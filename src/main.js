@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 import "./index.css";
 
 //const socket = io(process.env.SERVERURL || "http://localhost:3000");
-const socket = io("https://https://desolate-depths-24287.herokuapp.com/");
+const socket = io("https://desolate-depths-24287.herokuapp.com/");
 
 createApp(App)
   .use(VueSocketIOExt, socket, {

@@ -1,5 +1,4 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'
-      ? '/new-vue-project/'
-      : '/'
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/vue-chat-app-frontend/" : "/",
 };

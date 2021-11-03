@@ -1,29 +1,7 @@
 # vue-chat-app-frontend
 
-## Project setup
+## To see it live go to:
 
 ```
-npm install
+marian12345.github.io/vue-chat-app-frontend/
 ```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).

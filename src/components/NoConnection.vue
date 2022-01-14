@@ -10,7 +10,7 @@
     </div>
     <div class="row-span-1 row-start-2 p-2 grid items-center">
       <p class="fg-color font-medium text-4xl pb-28">
-        The server has been asleep. We are waking him up ...
+        Connecting to server ...
       </p>
     </div>
   </div>

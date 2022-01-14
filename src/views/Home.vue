@@ -1,4 +1,5 @@
 <template>
+  <NoConnection />
   <div
     class="
       home
@@ -20,12 +21,14 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import ChatConsole from "@/components/ChatConsole.vue";
+import NoConnection from "@/components/NoConnection.vue";
 
 export default {
   name: "Home",
   components: {
     HelloWorld,
     ChatConsole,
+    NoConnection,
   },
 };
 </script>

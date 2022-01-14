@@ -4,6 +4,7 @@ export default createStore({
   state: {
     loggedIn: false,
     usrname: "utypednothing",
+    connected: false,
   },
   mutations: {
     login(state, loggedIn) {
@@ -11,6 +12,9 @@ export default createStore({
     },
     changeUsrname(state, usrname) {
       state.usrname = usrname;
+    },
+    isConnected(state, connected) {
+      state.connected = connected;
     },
   },
   actions: {},

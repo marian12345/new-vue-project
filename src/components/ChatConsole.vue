@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="getStateData.isLoggedIn"
+    v-if="getStateData.isLoggedIn && getStateData.connected"
     class="col-span-full lg:col-span-1 lg:col-start-2 min-h-screen"
   >
     <div class="text-6xl my-14 px-4 py-2 w-full">
@@ -75,7 +75,7 @@ export default {
   },
   sockets: {
     connect: function () {
-      console.log("socket connected");
+      //console.log("socket connected");
     },
     add_user: function () {
       console.log(
@@ -141,6 +141,7 @@ export default {
       return {
         isLoggedIn: this.$store.state.loggedIn,
         usrname: this.$store.state.usrname,
+        connected: this.$store.state.connected,
       };
     },
   },

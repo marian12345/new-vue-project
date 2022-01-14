@@ -1,6 +1,6 @@
 <template>
   <form
-    v-if="!isLoggedIn"
+    v-if="!isLoggedIn && isConnected"
     class="
       col-span-1
       lg:col-start-2
@@ -14,7 +14,7 @@
     "
   >
     <div class="w-full flex justify-center mb-8">
-      <img alt="Vue logo" src="../assets/chat-app-logo.png" />
+      <img alt="Vue logo" src="../assets/images/chat-app-logo.png" />
     </div>
     <div class="mb-4">
       <label
@@ -53,7 +53,7 @@ export default {
   name: "HelloWorld",
   sockets: {
     connect: function () {
-      console.log("socket connected");
+      //console.log("socket connected");
     },
   },
   data() {
@@ -77,6 +77,9 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.state.loggedIn;
+    },
+    isConnected() {
+      return this.$store.state.connected;
     },
   },
 };

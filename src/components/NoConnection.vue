@@ -1,11 +1,12 @@
 <template>
   <div v-if="!isConnected" class="bg-color h-screen grid grid-rows-2 font-mono">
-    <div class="row-span-1 grid items-end justify-items-center p-2 pt-8">
+    <div class="row-span-1 grid items-end justify-items-center p-1 pt-8">
       <img
         src="../assets/images/loading.gif"
         alt="drinking gif"
         width="480"
         height="270"
+        class="object-scale-down max-h-full"
       />
     </div>
     <div class="row-span-1 row-start-2 p-2 grid items-center">

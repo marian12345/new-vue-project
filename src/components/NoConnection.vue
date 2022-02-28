@@ -1,12 +1,15 @@
 <template>
-  <div v-if="!isConnected" class="bg-color h-screen grid grid-rows-2 font-mono">
+  <div
+    v-if="!isConnected"
+    class="bg-gray-600 h-screen grid grid-rows-2 font-mono overflow-y-hidden"
+  >
     <div class="row-span-1 grid items-end justify-items-center p-1 pt-8">
       <img
         src="../assets/images/loading.gif"
-        alt="drinking gif"
+        alt="loading gif"
         width="480"
         height="270"
-        class="object-scale-down max-h-full"
+        class="object-scale-down max-h-half-screen"
       />
     </div>
     <div class="row-span-1 row-start-2 p-2 grid items-center">
@@ -20,7 +23,7 @@ export default {
   name: "NoConnection",
   sockets: {
     connect: function () {
-      //this.$store.commit("isConnected", true);
+      this.$store.commit("isConnected", true);
     },
   },
   computed: {
@@ -33,10 +36,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.bg-color {
-  background-color: #3d4856;
-}
 .fg-color {
   color: #effaff;
+}
+.max-h-half-screen {
+  max-height: 50vh;
 }
 </style>

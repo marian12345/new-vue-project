@@ -23,7 +23,7 @@ export default {
   name: "NoConnection",
   sockets: {
     connect: function () {
-      this.$store.commit("isConnected", true);
+      setTimeout(() => this.$store.commit("isConnected", true), 1000);
     },
   },
   computed: {

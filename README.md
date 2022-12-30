@@ -13,5 +13,3 @@ https://marian12345.github.io/vue-chat-app-frontend/
 ```
 
 The [backend](https://github.com/marian12345/nodejs-chat-app-backend) is currently deployed on fly.io
-
-check
